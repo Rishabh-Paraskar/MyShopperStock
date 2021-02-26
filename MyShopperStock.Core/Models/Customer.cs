@@ -13,7 +13,7 @@ namespace MyShopperStock.Core
         public string lastName { get; set; }
         public string email { get; set; }
         public string phoneNumber { get; set; }
-        public string dateOfBirth { get; set; }
+        public DateTime dateOfBirth { get; set; }
         public string securityQuestion { get; set; }
         public string answer { get; set; }
         public string address { get; set; }

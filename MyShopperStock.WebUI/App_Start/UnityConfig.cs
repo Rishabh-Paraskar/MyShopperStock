@@ -1,9 +1,11 @@
 using MyShopperStock.Core;
 using MyShopperStock.Core.Contracts;
 using MyShopperStock.SQL;
+using MyShopperStock.WebUI.Controllers;
 using System;
 
 using Unity;
+using Unity.Injection;
 
 namespace MyShopperStock.WebUI
 {
@@ -46,6 +48,7 @@ namespace MyShopperStock.WebUI
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepository<Customer>, SQLRepository<Customer>>();
+          
         }
     }
 }

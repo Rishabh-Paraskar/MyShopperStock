@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyShopperStock.WebUI.Models
@@ -86,7 +87,9 @@ namespace MyShopperStock.WebUI.Models
         [Required]
         public string phoneNumber { get; set; }
         [Required]
-        public string dateOfBirth { get; set; }
+        [Display(Name = "Date Of Birth")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
+        public DateTime dateOfBirth { get; set; }
         [Required]
         public string securityQuestion { get; set; }
         [Required]

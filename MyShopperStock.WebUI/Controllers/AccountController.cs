@@ -20,10 +20,7 @@ namespace MyShopperStock.WebUI.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private IRepository<Customer> repoContext;
-        public AccountController()
-        {
-        }
-
+       
         public AccountController(IRepository<Customer> context)
         {
             this.repoContext = context;
@@ -152,38 +149,44 @@ namespace MyShopperStock.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    Customer customer = new Customer() {
-                        firstname = model.firstname,
-                        lastName = model.lastName,
-                        email = model.Email,
-                        dateOfBirth = model.dateOfBirth,
-                        securityQuestion = model.securityQuestion,
-                        answer = model.answer,
-                        address = model.address,
-                        phoneNumber = model.phoneNumber,
-                        userId=user.Id
-                    
-                    
-                    };
+                if (model.dateOfBirth < DateTime.Now) 
+                { 
+                   var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                   var result = await UserManager.CreateAsync(user, model.Password);
 
-                    repoContext.insert(customer);
-                    repoContext.commit();
+                      if (result.Succeeded)
+                      {
+                          Customer customer = new Customer()
+                          {
+                            firstname = model.firstname,
+                            lastName = model.lastName,
+                            email = model.Email,
+                            dateOfBirth = model.dateOfBirth,
+                            securityQuestion = model.securityQuestion,
+                            answer = model.answer,
+                            address = model.address,
+                            phoneNumber = model.phoneNumber,
+                            userId = user.Id
 
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                          };
+
+                          repoContext.insert(customer);
+                          repoContext.commit();
+
+                           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                          return RedirectToAction("Index", "Home");
+                      }
+                    AddErrors(result);
                 }
-                AddErrors(result);
+                
             }
 
             // If we got this far, something failed, redisplay form
