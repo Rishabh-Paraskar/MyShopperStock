@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyShopperStock.Core;
+using MyShopperStock.Core.Contracts;
 using MyShopperStock.WebUI.Models;
 
 namespace MyShopperStock.WebUI.Controllers
@@ -18,15 +19,14 @@ namespace MyShopperStock.WebUI.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private IRepository<Customer> repoContext;
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(IRepository<Customer> context)
         {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            this.repoContext = context;
         }
 
         public ApplicationSignInManager SignInManager
@@ -157,18 +157,21 @@ namespace MyShopperStock.WebUI.Controllers
                 if (result.Succeeded)
                 {
                     Customer customer = new Customer() {
-                    firstname=model.firstname,
-                    lastName=model.lastName,
-                    email= model.Email,
-                    dateOfBirth=model.dateOfBirth,
-                    securityQuestion=model.securityQuestion,
-                    answer=model.answer,
-                    address=model.address,
-                    userId=user.Id
+                        firstname = model.firstname,
+                        lastName = model.lastName,
+                        email = model.Email,
+                        dateOfBirth = model.dateOfBirth,
+                        securityQuestion = model.securityQuestion,
+                        answer = model.answer,
+                        address = model.address,
+                        phoneNumber = model.phoneNumber,
+                        userId=user.Id
                     
                     
                     };
 
+                    repoContext.insert(customer);
+                    repoContext.commit();
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
