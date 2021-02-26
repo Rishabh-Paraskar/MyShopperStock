@@ -142,7 +142,7 @@ namespace MyShopperStock.WebUI.Controllers
         {
             return View();
         }
-
+         
         //
         // POST: /Account/Register
         [HttpPost]
