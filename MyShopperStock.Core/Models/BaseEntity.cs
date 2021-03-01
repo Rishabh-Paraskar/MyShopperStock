@@ -8,14 +8,14 @@ namespace MyShopperStock.Core
 {
    public abstract class BaseEntity
     {
-        public string id { get; set; }
+        public string Id { get; set; }
 
-        public DateTimeOffset createdAt { get; set; }
+        public DateTimeOffset CreatedAt { get; set; }
 
         public BaseEntity()
         {
-            id = Guid.NewGuid().ToString();
-            createdAt = DateTime.Now;
+            Id = Guid.NewGuid().ToString();
+            CreatedAt = DateTime.Now;
         }
 
     }

@@ -8,20 +8,20 @@ namespace MyShopperStock.Core
 {
    public class Customer : BaseEntity
     {
-        public string userId { get; set; }
-        public string firstname { get; set; }
-        public string lastName { get; set; }
-        public string email { get; set; }
-        public string phoneNumber { get; set; }
-        public DateTime dateOfBirth { get; set; }
-        public string securityQuestion { get; set; }
-        public string answer { get; set; }
-        public string address { get; set; }
-        public bool disable { get; set; }
+        public string UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string SecurityQuestion { get; set; }
+        public string Answer { get; set; }
+        public string Address { get; set; }
+        public bool Disable { get; set; }
       
 
         public Customer() {
-            this.disable = false;
+            this.Disable = false;
         }
 
     }

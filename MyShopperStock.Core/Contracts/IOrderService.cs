@@ -13,6 +13,6 @@ namespace MyShopperStock.Core.Contracts
         void CreateOrder( Order BaseOrder, List<BasketItemViewModel> BasketItems);
         List<Order> GetOrderList();
         Order GetOrder(string Id);
-        void UpdateOrder(Order UpdateOrder);
+        void UpdateOrder(Order UpdatedOrder);
     }
 }

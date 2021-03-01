@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MyShopperStock.Core.Models
 {
-   public class Basketitem : BaseEntity
+   public class BasketItem : BaseEntity
     {
         public string BasketId { get; set; }
         public string ProductId { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
     }
 }
