@@ -8,6 +8,6 @@ namespace MyShopperStock.Core
 {
    public class ProductCategory : BaseEntity
     {
-        public string category { get; set; }
+        public string Category { get; set; }
     }
 }
