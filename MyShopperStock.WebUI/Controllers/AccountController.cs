@@ -158,15 +158,15 @@ namespace MyShopperStock.WebUI.Controllers
                       {
                           Customer customer = new Customer()
                           {
-                            firstname = model.firstname,
-                            lastName = model.lastName,
-                            email = model.Email,
-                            dateOfBirth = model.dateOfBirth,
-                            securityQuestion = model.securityQuestion,
-                            answer = model.answer,
-                            address = model.address,
-                            phoneNumber = model.phoneNumber,
-                            userId = user.Id
+                            FirstName = model.firstname,
+                            LastName = model.lastName,
+                            Email = model.Email,
+                            DateOfBirth = model.dateOfBirth,
+                            SecurityQuestion = model.securityQuestion,
+                            Answer = model.answer,
+                            Address = model.address,
+                            PhoneNumber = model.phoneNumber,
+                            UserId = user.Id
 
 
                           };

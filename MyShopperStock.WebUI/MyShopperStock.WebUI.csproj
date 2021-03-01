@@ -418,6 +418,10 @@
       <Project>{9b8a2ab0-b3bd-4df6-b92a-677fc792aa02}</Project>
       <Name>MyShopperStock.SQL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ShopperStock.Service\ShopperStock.Service.csproj">
+      <Project>{e171816f-1633-486e-bd0d-ce1716cd179d}</Project>
+      <Name>ShopperStock.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
