@@ -151,7 +151,7 @@ namespace ShopperStock.Service
         public void RemoveFromBasket(HttpContextBase httpcontext, string itemid)
         {
             Basket basket = getBasket(httpcontext, true);
-            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.id == itemid);
+            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.Id == itemid);
 
             if (item != null)
             {

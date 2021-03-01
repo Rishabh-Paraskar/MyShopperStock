@@ -9,6 +9,6 @@ namespace MyShopperStock.Core.ViewModel
    public class ProductManagerViewModel
     {
         public Product Product { get; set; }
-        public ICollection<ProductCategory> ProductCategoty { get; set; }
+        public IEnumerable<ProductCategory> ProductCategory { get; set; }
     }
 }

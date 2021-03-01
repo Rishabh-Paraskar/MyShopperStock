@@ -81,22 +81,24 @@ namespace MyShopperStock.WebUI.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
         [Required]
-        public string firstname { get; set; }
+        public string FirstName { get; set; }
         [Required]
-        public string lastName { get; set; }
+        public string LastName { get; set; }
         [Required]
-        public string phoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         [Required]
         [Display(Name = "Date Of Birth")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
-        public DateTime dateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         [Required]
-        public string securityQuestion { get; set; }
+        public string SecurityQuestion { get; set; }
         [Required]
-        public string answer { get; set; }
+        public string Answer { get; set; }
         [Required]
-        public string address { get; set; }
-        
+        public string Address { get; set; }
+        [Required]
+        public string ZipCode { get; set; }
+
 
     }
 

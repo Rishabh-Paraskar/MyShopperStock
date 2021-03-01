@@ -149,7 +149,7 @@ namespace MyShopperStock.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.dateOfBirth < DateTime.Now) 
+                if (model.DateOfBirth < DateTime.Now) 
                 { 
                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                    var result = await UserManager.CreateAsync(user, model.Password);
@@ -158,14 +158,14 @@ namespace MyShopperStock.WebUI.Controllers
                       {
                           Customer customer = new Customer()
                           {
-                            FirstName = model.firstname,
-                            LastName = model.lastName,
+                            FirstName = model.FirstName,
+                            LastName = model.LastName,
                             Email = model.Email,
-                            DateOfBirth = model.dateOfBirth,
-                            SecurityQuestion = model.securityQuestion,
-                            Answer = model.answer,
-                            Address = model.address,
-                            PhoneNumber = model.phoneNumber,
+                            DateOfBirth = model.DateOfBirth,
+                            SecurityQuestion = model.SecurityQuestion,
+                            Answer = model.Answer,
+                            Address = model.Address,
+                            PhoneNumber = model.PhoneNumber,
                             UserId = user.Id
 
 

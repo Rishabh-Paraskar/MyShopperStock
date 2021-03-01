@@ -21,7 +21,7 @@ namespace ShopperStock.Service
         {
             foreach (var item in BasketItems)
             {
-                BaseOrder.orderItems.Add(new OrderItem()
+                BaseOrder.OrderItems.Add(new OrderItem()
                 {
 
                     ProductId = item.Id,
